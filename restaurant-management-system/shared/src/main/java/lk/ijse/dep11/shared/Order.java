@@ -14,4 +14,5 @@ public class Order implements Serializable {
     private String OderId;
     private String CustomerName;
     private ArrayList<Item> CartItem;
+    private String Status;
 }
