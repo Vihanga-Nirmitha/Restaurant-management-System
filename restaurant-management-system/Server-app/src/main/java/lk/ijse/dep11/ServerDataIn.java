@@ -1,5 +1,7 @@
 package lk.ijse.dep11;
 
+import lk.ijse.dep11.shared.Order;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
