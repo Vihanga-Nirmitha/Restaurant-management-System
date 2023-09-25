@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ServerViewController">
+   <children>
+      <Label layoutX="152.0" layoutY="14.0" text="Restaurant Management System">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <VBox fx:id="vBoxOrders" layoutX="14.0" layoutY="86.0" prefHeight="299.0" prefWidth="569.0" />
+      <HBox layoutX="11.0" layoutY="45.0" prefHeight="37.0" prefWidth="476.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="100.0">
+               <children>
+                  <Label text="Order ID" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="278.0">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="96.0" text="Description" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="146.0">
+               <children>
+                  <Label text="Status" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
