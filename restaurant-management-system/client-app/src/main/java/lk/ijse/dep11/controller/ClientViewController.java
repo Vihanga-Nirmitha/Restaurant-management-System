@@ -101,7 +101,12 @@ public class ClientViewController {
         Item cartItem = new Item(txtItemName.getText(), txtQty.getValue().toString(), new BigDecimal(txtUnitPrice.getText()), total);
         for (Item item : tblOrder.getItems()) {
             if(txtItemName.getText().equals(item.getItemName())){
-                
+                int newQTY = Integer.valueOf(item.getQty())+txtQty.getValue();
+                item.setQty(String.valueOf(newQTY));
+                BigDecimal newTotal = item.getItemPrice().multiply(new BigDecimal(newQTY));
+                item.setTotal(newTotal);
+                tblOrder.refresh();
+                return;
             }
         }
         tblOrder.getItems().add(cartItem);
