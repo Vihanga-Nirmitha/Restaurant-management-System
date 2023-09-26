@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -15,8 +16,12 @@ public class Item implements Serializable {
     private  String ItemID;
     private String ItemName;
     private int qty;
-    private double ItemPrice;
+    private BigDecimal ItemPrice;
+    private BigDecimal total;
 
+    public BigDecimal total(){
+        return this.ItemPrice.multiply(BigDecimal.valueOf(qty));
+    }
 
 
 }
