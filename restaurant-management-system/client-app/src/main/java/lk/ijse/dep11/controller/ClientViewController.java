@@ -53,6 +53,10 @@ public class ClientViewController {
         tblOrder.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
         tblOrder.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("total"));
 
+        tblStatus.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("orderId"));
+        tblStatus.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        tblStatus.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("status"));
+
     }
 
     private String generateOrderId() {
@@ -130,4 +134,11 @@ public class ClientViewController {
         btnPlaceOrder.setDisable(tblOrder.getItems().isEmpty());
         mouseEvent.consume();*/
     }
+
+    public void pendingOrders(Order order){
+        tblStatus.getItems().add(order);
+        tblStatus.refresh();
+        System.out.println("Method to adding status table is completed");
+    }
+
 }
