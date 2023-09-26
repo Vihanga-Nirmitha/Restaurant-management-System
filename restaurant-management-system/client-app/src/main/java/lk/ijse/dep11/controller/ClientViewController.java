@@ -5,6 +5,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dep11.shared.Order;
 
 public class ClientViewController {
     public AnchorPane rootMain;
@@ -12,7 +13,7 @@ public class ClientViewController {
     public TextField txtOrderName;
     public TextField txtContactNo;
     public TextField txtItemName;
-    public TableView tblOrder;
+    public TableView<Order> tblOrder;
     public TableView tblStatus;
     public ImageView imvBurger;
     public ImageView imvPizza;

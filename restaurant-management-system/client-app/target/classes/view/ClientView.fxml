@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.dep11.controller.ClientViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="rootMain" prefHeight="807.0" prefWidth="1127.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.controller.ClientViewController">
+   <children>
+      <VBox layoutX="429.0" layoutY="84.0" prefHeight="132.0" prefWidth="365.0" spacing="20.0">
+         <children>
+            <HBox layoutX="10.0" layoutY="67.0" prefHeight="37.0" prefWidth="310.0" spacing="70.0">
+               <children>
+                  <Label text="Order ID: " />
+                  <TextField fx:id="txtOrderID" editable="false" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="310.0" spacing="20.0">
+               <children>
+                  <Label text="Customer Name :" />
+                  <TextField fx:id="txtOrderName" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="310.0" spacing="53.0">
+               <children>
+                  <Label text="Contact No: " />
+                  <TextField fx:id="txtContactNo" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="112.0" prefHeight="37.0" prefWidth="310.0" spacing="53.0">
+               <children>
+                  <Label text="Item Name :" />
+                  <TextField fx:id="txtItemName" editable="false" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tblOrder" layoutX="460.0" layoutY="472.0" prefHeight="324.0" prefWidth="604.0">
+        <columns>
+          <TableColumn prefWidth="195.0" text="Name" />
+          <TableColumn prefWidth="94.0" text="QTY" />
+            <TableColumn prefWidth="122.0" text="Unit Price" />
+            <TableColumn prefWidth="192.0" text="Total" />
+        </columns>
+      </TableView>
+      <Spinner layoutX="526.0" layoutY="436.0" />
+      <Label layoutX="460.0" layoutY="440.0" text="Qty : " />
+      <Button layoutX="731.0" layoutY="436.0" mnemonicParsing="false" text="Add" />
+      <Button layoutX="794.0" layoutY="436.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="936.0" layoutY="421.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="128.0" style="-fx-background-color: green;" text="Place Order" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblStatus" layoutX="14.0" layoutY="80.0" prefHeight="711.0" prefWidth="365.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="158.0" text="Customer Name" />
+            <TableColumn prefWidth="131.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="379.0" layoutY="14.0" prefHeight="56.0" prefWidth="388.0" text="Devine Taste" textFill="#bf1515">
+         <font>
+            <Font name="Comic Sans MS" size="40.0" />
+         </font>
+      </Label>
+      <HBox layoutX="423.0" layoutY="264.0" prefHeight="150.0" prefWidth="678.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="imvBurger" fitHeight="150.0" fitWidth="166.0" onMouseClicked="#imvBurgerOnMouseCliked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/burger.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imvPizza" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imvPizzaOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/pngtree-cheese-pizza-vector-art-png-image_8799647.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imvSub" fitHeight="150.0" fitWidth="181.0" onMouseClicked="#imvSubOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/sub-sandwich-transparent-8.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imvBurrito" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#imvBurritoOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/burrito.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

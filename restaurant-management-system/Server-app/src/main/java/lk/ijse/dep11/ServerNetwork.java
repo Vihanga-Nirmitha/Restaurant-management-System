@@ -1,10 +1,7 @@
 package lk.ijse.dep11;
 
-<<<<<<< HEAD
 import lk.ijse.dep11.shared.Order;
 
-=======
->>>>>>> feat/6/GUI-Design
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,10 +9,10 @@ import java.util.ArrayList;
 
 public class ServerNetwork {
 
-    ArrayList<Order> orderInputList = new ArrayList<>();
+    private ArrayList<Order> orderInputList = new ArrayList<>();
     public ObjectOutputStream oos;
 
-    public /*static*/ void openServerInputServer(){
+    public static void openServerInputServer(){
         try {
             ServerSocket serverSocket = new ServerSocket(5050);
 
@@ -32,7 +29,7 @@ public class ServerNetwork {
                    while (true){
                        Order newOrder = (Order) ois.readObject();
                        //Todo : code here and below to process order data from client app
-                       orderInputList.add(newOrder);
+                       //orderInputList.add(newOrder);
                    }
                } catch (IOException e) {
                    e.printStackTrace();
