@@ -36,6 +36,9 @@ public class ClientViewController {
     final Food pizza = new Food("pizza", BigDecimal.valueOf(1490.00));
     final Food burrito = new Food("Burrito", BigDecimal.valueOf(1150.00));
     public TextField txtCustomerName;
+    public Button btnConnectToKitchen;
+
+    private ClientNetwork clientNetwork;
 
     public void initialize(){
         /*txtQty.setDisable(true);
@@ -59,11 +62,12 @@ public class ClientViewController {
         tblStatus.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("customerName"));
         tblStatus.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        ClientNetwork clientNetwork = new ClientNetwork();
-        clientNetwork.openClientInputServer();
-        Platform.runLater(()->{
-            clientNetwork.openClientOutput();
-        });
+
+        clientNetwork = new ClientNetwork();
+        new Thread(()->{
+            clientNetwork.openClientInputServer();
+        }).start();
+
     }
 
     private String generateOrderId() {
@@ -148,4 +152,7 @@ public class ClientViewController {
         System.out.println("Method to adding status table is completed");
     }
 
+    public void btnConnectToKitchenOnction(ActionEvent actionEvent) {
+        clientNetwork.openClientOutput();
+    }
 }
