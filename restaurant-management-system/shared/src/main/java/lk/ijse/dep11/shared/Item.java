@@ -13,15 +13,15 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Item implements Serializable {
 
-    private  String ItemID;
-    private String ItemName;
-    private int qty;
-    private BigDecimal ItemPrice;
+    //private  String ItemID;
+    private String itemName;
+    private String qty;
+    private BigDecimal itemPrice;
     private BigDecimal total;
 
-    public BigDecimal total(){
-        return this.ItemPrice.multiply(BigDecimal.valueOf(qty));
+    public Item(String itemName,String qty,BigDecimal itemPrice){
+        this.itemName = itemName;
+        this.qty = qty;
+        this.itemPrice = itemPrice;
     }
-
-
 }

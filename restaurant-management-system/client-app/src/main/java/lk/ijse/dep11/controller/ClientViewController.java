@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ClientViewController {
     public TextField txtOrderID;
-    public TextField txtOrderName;
     public TextField txtContactNo;
     public TextField txtItemName;
     public TableView<Item> tblOrder;
@@ -34,19 +33,25 @@ public class ClientViewController {
     final Food submarine = new Food("Submarine", BigDecimal.valueOf(850.00));
     final Food pizza = new Food("pizza", BigDecimal.valueOf(1490.00));
     final Food burrito = new Food("Burrito", BigDecimal.valueOf(1150.00));
+    public TextField txtCustomerName;
 
     public void initialize(){
-        txtQty.setDisable(true);
+        /*txtQty.setDisable(true);
         btnAdd.setDisable(true);
+        btnDelete.setDisable(true);*/
+        for (Control control : new Control[] {btnAdd,btnDelete,btnPlaceOrder,txtQty}) {
+            control.setDisable(true);
+            
+        }
         txtQty.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,1,1));
         txtOrderID.setText(generateOrderId());
         //foods
 
 
-        tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("qty"));
-        tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("unit price"));
-        tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("total"));
+        tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        tblOrder.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("qty"));
+        tblOrder.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
+        tblOrder.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("total"));
 
     }
 
@@ -62,7 +67,7 @@ public class ClientViewController {
         txtQty.setDisable(false);
         txtItemName.setText(burger.getName());
         txtUnitPrice.setText(burger.getUnitPrice().toString());
-        System.out.println("Clicked");
+        btnAdd.setDisable(false);
         mouseEvent.consume();
     }
 
@@ -70,7 +75,7 @@ public class ClientViewController {
         txtQty.setDisable(false);
         txtItemName.setText(pizza.getName());
         txtUnitPrice.setText(pizza.getUnitPrice().toString());
-        System.out.println("Clicked");
+        btnAdd.setDisable(false);
         mouseEvent.consume();
     }
 
@@ -78,7 +83,7 @@ public class ClientViewController {
         txtQty.setDisable(false);
         txtItemName.setText(submarine.getName());
         txtUnitPrice.setText(submarine.getUnitPrice().toString());
-        System.out.println("Clicked");
+        btnAdd.setDisable(false);
         mouseEvent.consume();
     }
 
@@ -86,12 +91,20 @@ public class ClientViewController {
         txtQty.setDisable(false);
         txtItemName.setText(burrito.getName());
         txtUnitPrice.setText(burrito.getUnitPrice().toString());
-        System.out.println("Clicked");
+        btnAdd.setDisable(false);
         mouseEvent.consume();
     }
 
     public void btnAddOnAction(ActionEvent event) {
-
+        BigDecimal total = new BigDecimal(txtUnitPrice.getText()).multiply(new BigDecimal(txtQty.getValue()));
+        //Item addItem = new Item(txtItemName.getText(), txtQty.getValue().toString(), new BigDecimal(txtUnitPrice.getText()));
+        Item cartItem = new Item(txtItemName.getText(), txtQty.getValue().toString(), new BigDecimal(txtUnitPrice.getText()), total);
+        for (Item item : tblOrder.getItems()) {
+            if(txtItemName.getText().equals(item.getItemName())){
+                
+            }
+        }
+        tblOrder.getItems().add(cartItem);
     }
 
     public void btnDeleteOnAction(ActionEvent event) {
@@ -104,9 +117,12 @@ public class ClientViewController {
     }
 
     public void rootClientOnMouseClicked(MouseEvent mouseEvent) {
-        txtQty.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100,0,1));
+        /*txtQty.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100,0,1));
         txtItemName.clear();
         txtUnitPrice.clear();
-        mouseEvent.consume();
+        btnAdd.setDisable(true);
+        btnDelete.setDisable(true);
+        btnPlaceOrder.setDisable(tblOrder.getItems().isEmpty());
+        mouseEvent.consume();*/
     }
 }

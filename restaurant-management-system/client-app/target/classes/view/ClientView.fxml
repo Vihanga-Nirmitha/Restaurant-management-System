@@ -29,7 +29,7 @@
             <HBox prefHeight="37.0" prefWidth="310.0" spacing="20.0">
                <children>
                   <Label text="Customer Name :" />
-                  <TextField fx:id="txtOrderName" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtCustomerName" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox prefHeight="37.0" prefWidth="310.0" spacing="53.0">
@@ -81,7 +81,7 @@
             <Font name="Comic Sans MS" size="40.0" />
          </font>
       </Label>
-      <HBox layoutX="427.0" layoutY="312.0" prefHeight="102.0" prefWidth="637.0" spacing="10.0">
+      <HBox layoutX="478.0" layoutY="323.0" prefHeight="113.0" prefWidth="521.0" spacing="10.0">
          <children>
             <ImageView fx:id="imvBurger" fitHeight="112.0" fitWidth="128.0" onMouseClicked="#imvBurgerOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
