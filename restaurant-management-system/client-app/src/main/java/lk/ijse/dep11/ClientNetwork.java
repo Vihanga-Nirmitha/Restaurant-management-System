@@ -18,6 +18,7 @@ public class ClientNetwork {
 
         Socket remoteSocket =null;
         try {
+            System.out.println("Client trying to connect");
             remoteSocket = new Socket("hocalhost",5050);
             OutputStream os = remoteSocket.getOutputStream();
             BufferedOutputStream bos = new BufferedOutputStream(os);
@@ -33,7 +34,7 @@ public class ClientNetwork {
         try {
             ServerSocket serverSocket = new ServerSocket(5051);
             Socket localSocket = serverSocket.accept();
-            System.out.println("Connected to input");
+            System.out.println("Kitchen connected to cashier");
             InputStream is  = localSocket.getInputStream();
             BufferedInputStream bis = new BufferedInputStream(is);
             ObjectInputStream ois = new ObjectInputStream(bis);

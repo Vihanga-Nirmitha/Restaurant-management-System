@@ -1,11 +1,13 @@
 package lk.ijse.dep11.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dep11.ClientNetwork;
 import lk.ijse.dep11.Food;
 import lk.ijse.dep11.shared.Item;
 import lk.ijse.dep11.shared.Order;
@@ -57,6 +59,11 @@ public class ClientViewController {
         tblStatus.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("customerName"));
         tblStatus.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        ClientNetwork clientNetwork = new ClientNetwork();
+        clientNetwork.openClientInputServer();
+        Platform.runLater(()->{
+            clientNetwork.openClientOutput();
+        });
     }
 
     private String generateOrderId() {
