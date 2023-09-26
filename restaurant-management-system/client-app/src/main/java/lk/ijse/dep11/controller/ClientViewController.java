@@ -52,6 +52,9 @@ public class ClientViewController {
         tblOrder.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("qty"));
         tblOrder.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
         tblOrder.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("total"));
+        tblOrder.getSelectionModel().selectedItemProperty().addListener((o,old,current)->{
+            btnDelete.setDisable(current==null);
+        });
 
     }
 
@@ -113,6 +116,7 @@ public class ClientViewController {
     }
 
     public void btnDeleteOnAction(ActionEvent event) {
+        tblOrder.getItems().remove(tblOrder.getSelectionModel().getSelectedItem());
     }
 
     public void btnPlaceOrderOnAction(ActionEvent event) {
