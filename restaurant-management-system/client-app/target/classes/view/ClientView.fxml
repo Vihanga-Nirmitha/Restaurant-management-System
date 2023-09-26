@@ -51,11 +51,11 @@
             <TableColumn prefWidth="192.0" text="Total" />
         </columns>
       </TableView>
-      <Spinner layoutX="526.0" layoutY="436.0" />
+      <Spinner fx:id="txtQty" layoutX="526.0" layoutY="436.0" />
       <Label layoutX="460.0" layoutY="440.0" text="Qty : " />
-      <Button layoutX="731.0" layoutY="436.0" mnemonicParsing="false" text="Add" />
-      <Button layoutX="794.0" layoutY="436.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="936.0" layoutY="421.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="128.0" style="-fx-background-color: green;" text="Place Order" textFill="WHITE">
+      <Button fx:id="btnAdd" layoutX="731.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+      <Button fx:id="btnDelete" layoutX="794.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button fx:id="btnPlaceOrder" layoutX="936.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="39.0" prefWidth="128.0" style="-fx-background-color: green;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
@@ -74,7 +74,7 @@
       </Label>
       <HBox layoutX="423.0" layoutY="264.0" prefHeight="150.0" prefWidth="678.0" spacing="10.0">
          <children>
-            <ImageView fx:id="imvBurger" fitHeight="150.0" fitWidth="166.0" onMouseClicked="#imvBurgerOnMouseCliked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imvBurger" fitHeight="150.0" fitWidth="166.0" onMouseClicked="#imvBurgerOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/burger.png" />
                </image>
