@@ -1,3 +1,4 @@
+
 package lk.ijse.dep11;
 
 import lk.ijse.dep11.shared.Order;
@@ -12,12 +13,12 @@ public class ServerNetwork {
     private ArrayList<Order> orderInputList = new ArrayList<>();
     public ObjectOutputStream oos;
 
-    public static void openServerInputServer(){
+    public /*static*/ void openServerInputServer(){
         try {
             ServerSocket serverSocket = new ServerSocket(5050);
 
             Socket localSocket = serverSocket.accept();
-            System.out.println("Client connected : ");
+            System.out.println("Cashier connected to Kitchen");
 
            new Thread(()->{
                InputStream is = null;
@@ -48,6 +49,7 @@ public class ServerNetwork {
     public void openserverOutput(){
         Socket remoteSocket =null;
         try {
+            System.out.println("Kitchen trying to connect");
             remoteSocket = new Socket("hocalhost",5051);
             OutputStream os = remoteSocket.getOutputStream();
             BufferedOutputStream bos = new BufferedOutputStream(os);
@@ -74,3 +76,4 @@ public class ServerNetwork {
     }
 
 }
+
