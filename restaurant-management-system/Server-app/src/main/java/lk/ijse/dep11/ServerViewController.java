@@ -1,5 +1,6 @@
 package lk.ijse.dep11;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -49,6 +50,14 @@ public class ServerViewController {
         }catch (NullPointerException e){
             System.out.println("BBB");
         }
+
+        ServerNetwork serverNetwork = new ServerNetwork();
+        new Thread(()->{
+            serverNetwork.openServerInputServer();
+        }).start();
+        Platform.runLater(()->{
+            serverNetwork.openserverOutput();
+        });
 
     }
 
