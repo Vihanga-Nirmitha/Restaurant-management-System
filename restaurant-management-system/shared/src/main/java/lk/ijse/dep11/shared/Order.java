@@ -11,8 +11,8 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class Order implements Serializable {
 
-    private String OderId;
-    private String CustomerName;
-    private ArrayList<Item> CartItem;
-    private String Status;
+    private String oderId;
+    private String customerName;
+    private ArrayList<Item> cartItem;
+    private String status;
 }

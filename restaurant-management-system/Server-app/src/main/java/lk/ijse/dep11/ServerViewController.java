@@ -74,7 +74,6 @@ public class ServerViewController {
         vBoxOrders.getChildren().add(hbox);
     }
 
-
 }
 
 
