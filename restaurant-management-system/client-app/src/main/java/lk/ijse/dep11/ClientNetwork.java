@@ -19,7 +19,7 @@ public class ClientNetwork {
         Socket remoteSocket =null;
         try {
             System.out.println("Client trying to connect");
-            remoteSocket = new Socket("hocalhost",5050);
+            remoteSocket = new Socket("localhost",5050);
             OutputStream os = remoteSocket.getOutputStream();
             BufferedOutputStream bos = new BufferedOutputStream(os);
             oos = new ObjectOutputStream(bos);

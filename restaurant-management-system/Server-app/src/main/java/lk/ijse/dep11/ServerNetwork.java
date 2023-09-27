@@ -15,6 +15,7 @@ public class ServerNetwork {
 
     public /*static*/ void openServerInputServer(){
         try {
+            System.out.println("Kitchen Server socket is open t connect");
             ServerSocket serverSocket = new ServerSocket(5050);
 
             Socket localSocket = serverSocket.accept();
@@ -50,7 +51,7 @@ public class ServerNetwork {
         Socket remoteSocket =null;
         try {
             System.out.println("Kitchen trying to connect");
-            remoteSocket = new Socket("hocalhost",5051);
+            remoteSocket = new Socket("localhost",5051);
             OutputStream os = remoteSocket.getOutputStream();
             BufferedOutputStream bos = new BufferedOutputStream(os);
             oos = new ObjectOutputStream(bos);
